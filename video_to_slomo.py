@@ -23,6 +23,8 @@ parser.add_argument("--batch_size", type=int, default=1, help='Specify batch siz
 parser.add_argument("--output", type=str, default="output.mkv", help='Specify output file name. Default: output.mp4')
 args = parser.parse_args()
 
+torch.backends.cudnn.benchmark = True
+
 def check():
     """
     Checks the validity of commandline arguments.
