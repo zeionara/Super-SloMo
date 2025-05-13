@@ -92,8 +92,8 @@ def create_video(dir):
         ffmpeg_path = "ffmpeg"
 
     error = ""
-    print('{} -r {} -i {}/%d.png -vcodec ffvhuff {}'.format(ffmpeg_path, args.fps, dir, args.output))
-    retn = os.system('{} -r {} -i {}/%d.png -vcodec ffvhuff "{}"'.format(ffmpeg_path, args.fps, dir, args.output))
+    print('{} -r {} -i {}/%d.png -vcodec ffvhuff {} -y'.format(ffmpeg_path, args.fps, dir, args.output))
+    retn = os.system('{} -r {} -i {}/%d.png -vcodec ffvhuff "{}" -y'.format(ffmpeg_path, args.fps, dir, args.output))
     if retn:
         error = "Error creating output video. Exiting."
     return error
