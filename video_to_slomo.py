@@ -77,8 +77,9 @@ def extract_frames(video, outDir):
     else:
         ffmpeg_path = "ffmpeg"
 
-    print('{} -i {} -vsync 0 {}/%06d.png'.format(ffmpeg_path, video, outDir))
-    retn = os.system('{} -i "{}" -vsync 0 {}/%06d.png'.format(ffmpeg_path, video, outDir))
+    # print('{} -i {} -vsync 0 {}/%06d.png'.format(ffmpeg_path, video, outDir))
+    # retn = os.system('{} -i "{}" -vsync 0 {}/%06d.png'.format(ffmpeg_path, video, outDir))
+    retn = os.system('{} -i "{}" -vsync 0 -vf "select=gt(scene\,0.007)" {}/%06d.png'.format(ffmpeg_path, video, outDir))
     if retn:
         error = "Error converting file:{}. Exiting.".format(video)
     return error
